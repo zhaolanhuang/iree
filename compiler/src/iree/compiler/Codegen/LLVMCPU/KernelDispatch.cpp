@@ -2533,7 +2533,7 @@ static LogicalResult setElementwiseGenericOpRootConfig(
   // Adjust the number of workload per workgroup to at least 4096. This
   // prevents the runtime overheads domiating the execution time. The number is
   // derived from experimients. We should be able to make it related to target.
-  constexpr int64_t kMinimumWorkload = 4096;
+  constexpr int64_t kMinimumWorkload = 64; //4096;
   auto shape = genericOp.getStaticLoopRanges();
   int64_t numWorkload = 1;
   for (const auto &[index, size] : llvm::enumerate(shape)) {

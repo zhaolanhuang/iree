@@ -392,10 +392,13 @@ createTargetMachine(const LLVMTarget &target) {
   if (!llvmTarget)
     return nullptr;
   llvm::Triple triple(target.getTriple());
+  auto relocModel = llvm::Reloc::Model::PIC_;
+  if ( target.getTriple().rfind("xtensa", 0) == 0)
+    relocModel = llvm::Reloc::Model::Static;
   std::unique_ptr<llvm::TargetMachine> machine(llvmTarget->createTargetMachine(
       triple, target.getCpu() /* cpu e.g k8 */,
       target.getCpuFeatures() /* cpu features e.g avx512f */,
-      target.llvmTargetOptions, llvm::Reloc::Model::PIC_, {},
+      target.llvmTargetOptions, relocModel, {},
       target.codeGenOptLevel,
       /*JIT=*/false));
   return machine;
@@ -426,6 +429,8 @@ static void initializeLLVMTargets() {
 #define LLVM_INITIALIZE_TARGET_X86() LLVM_INITIALIZE_GENERIC(X86)
 #define LLVM_INITIALIZE_TARGET_WebAssembly()                                   \
   LLVM_INITIALIZE_GENERIC(WebAssembly)
+
+#define LLVM_INITIALIZE_TARGET_Xtensa() LLVM_INITIALIZE_GENERIC(Xtensa)
 
 // We must no-op the name of each target we don't care about. This is annoying,
 // but targets aren't created every day and isn't the end of the world. The
