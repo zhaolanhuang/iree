@@ -220,7 +220,7 @@ typedef struct iree_hal_static_library_loader_t {
 static const iree_hal_executable_loader_vtable_t
     iree_hal_static_library_loader_vtable;
 
-iree_status_t iree_hal_static_library_loader_create(
+IREE_API_EXPORT iree_status_t iree_hal_static_library_loader_create(
     iree_host_size_t library_count,
     const iree_hal_executable_library_query_fn_t* library_query_fns,
     iree_hal_executable_import_provider_t import_provider,

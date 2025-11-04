@@ -15,6 +15,8 @@ if(IREE_HAL_EXECUTABLE_LOADER_VMVX_MODULE)
   list(APPEND IREE_HAL_EXECUTABLE_LOADER_MODULES iree::hal::local::loaders::vmvx_module_loader)
 endif()
 
+list(APPEND IREE_HAL_EXECUTABLE_LOADER_MODULES iree::hal::local::loaders::static_library_loader)
+
 iree_cc_library(
   NAME
     registration

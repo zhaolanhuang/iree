@@ -52,7 +52,7 @@ static uint64_t iree_fpu_load_state(void) {
 static void iree_fpu_store_state(uint64_t state) {
   _MoveToCoprocessor((int)state, 10, 7, 1, 0, 0);
 }
-#elif defined(IREE_ARCH_ARM_32)
+#elif defined(IREE_ARCH_ARM_32) && __ARM_FP
 static uint64_t iree_fpu_load_state() {
   uint32_t fpscr;
   __asm__ __volatile__("VMRS %[fpscr], fpscr" : [fpscr] "=r"(fpscr));

@@ -320,7 +320,8 @@ static bool iree_hal_embedded_elf_loader_query_support(
     iree_hal_executable_caching_mode_t caching_mode,
     iree_string_view_t executable_format) {
   return iree_string_view_starts_with(
-      executable_format, iree_make_cstring_view("embedded-elf-" IREE_ARCH));
+//      executable_format, iree_make_cstring_view("embedded-elf-" IREE_ARCH));
+        executable_format, iree_make_cstring_view("embedded-elf-"));
 }
 
 static iree_status_t iree_hal_embedded_elf_loader_try_load(

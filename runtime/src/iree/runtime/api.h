@@ -17,4 +17,10 @@
 #include "iree/runtime/instance.h"  // IWYU pragma: export
 #include "iree/runtime/session.h"   // IWYU pragma: export
 
+#include "iree/hal/local/executable_library.h"
+#include "iree/hal/drivers/local_sync/sync_device.h"
+#include "iree/hal/drivers/local_task/task_device.h"
+#include "iree/task/api.h"
+#include "iree/hal/local/loaders/static_library_loader.h"
+
 #endif  // IREE_RUNTIME_API_H_

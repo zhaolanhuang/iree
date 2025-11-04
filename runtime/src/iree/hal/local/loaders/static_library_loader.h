@@ -33,7 +33,7 @@ extern "C" {
 // Multiple static library loaders can be registered in cases when several
 // independent sets of libraries are linked in however duplicate names both
 // within and across loaders will result in undefined behavior.
-iree_status_t iree_hal_static_library_loader_create(
+IREE_API_EXPORT iree_status_t iree_hal_static_library_loader_create(
     iree_host_size_t library_count,
     const iree_hal_executable_library_query_fn_t* library_query_fns,
     iree_hal_executable_import_provider_t import_provider,
