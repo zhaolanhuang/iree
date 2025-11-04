@@ -64,6 +64,7 @@ enum iree_arch_enum_e {
   IREE_ARCH_ENUM_WASM_64,
   IREE_ARCH_ENUM_X86_32,
   IREE_ARCH_ENUM_X86_64,
+  IREE_ARCH_ENUM_XTENSA,
 };
 
 #if defined(__arm64) || defined(__aarch64__) || defined(_M_ARM64) || \
@@ -77,6 +78,12 @@ enum iree_arch_enum_e {
 #define IREE_ARCH_ENUM IREE_ARCH_ENUM_ARM_32
 #define IREE_ARCH_ARM_32 1
 #endif  // ARM
+
+#if defined(__xtensa__)
+#define IREE_ARCH "xtensa"
+#define IREE_ARCH_ENUM IREE_ARCH_ENUM_XTENSA
+#define IREE_ARCH_XTENSA 1
+#endif
 
 #if defined(__riscv) && (__riscv_xlen == 32)
 #define IREE_ARCH "riscv_32"
