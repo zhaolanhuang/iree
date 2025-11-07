@@ -120,7 +120,7 @@ enum iree_arch_enum_e {
 #if !defined(IREE_ARCH_ARM_32) && !defined(IREE_ARCH_ARM_64) &&     \
     !defined(IREE_ARCH_RISCV_32) && !defined(IREE_ARCH_RISCV_64) && \
     !defined(IREE_ARCH_WASM_32) && !defined(IREE_ARCH_WASM_64) &&   \
-    !defined(IREE_ARCH_X86_32) && !defined(IREE_ARCH_X86_64)
+    !defined(IREE_ARCH_X86_32) && !defined(IREE_ARCH_X86_64) && !defined(IREE_ARCH_XTENSA)
 #error Unknown architecture.
 #endif  // all archs
 
