@@ -340,7 +340,7 @@ static iree_status_t iree_vm_stack_grow(iree_vm_stack_t* stack,
   }
 
   // Ensure we grow at least as much as required.
-  iree_host_size_t new_capacity = stack->frame_storage_capacity;
+  iree_host_size_t new_capacity = stack->frame_storage_capacity == 0 ? 1 : stack->frame_storage_capacity;
   do {
     new_capacity *= IREE_VM_STACK_GROWTH_FACTOR;
   } while (new_capacity < minimum_capacity);
